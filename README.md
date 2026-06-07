@@ -1,79 +1,74 @@
-# Influencer Sourcing Plugin for Claude Code
+# Plugin de Sourcing de Influenciadores para Claude Code
 
-Find, score, and rank influencer/creator candidates from Instagram and TikTok — powered by Apify scraping and Gemini AI scoring.
+Encontre, pontue e classifique candidatos a influenciadores/criadores do Instagram e TikTok — alimentado por scraping Apify e pontuação Gemini AI.
 
-## What it does
+## O que faz
 
-- **Source creators** from TikTok and Instagram by niche keywords
-- **AI-score** each creator's brand fit (1-10) using Gemini
-- **Generate personalized outreach DMs** referencing each creator's actual content
-- **Export to CSV** for your team
+- **Busca criadores** do TikTok e Instagram por palavras-chave de nicho
+- **Pontua com IA** o fit de cada criador com a marca (1-10) usando Gemini
+- **Gera DMs de outreach personalizadas** referenciando o conteúdo real de cada criador
+- **Exporta para CSV** para sua equipe
 
-## Setup
+## Configuração
 
-### 1. Install the plugin
-
-```bash
-claude --plugin-dir /path/to/influencer-sourcing-plugin
-```
-
-Or install from GitHub:
-```
-/plugin install mikefutia/influencer-sourcing-plugin
-```
-
-### 2. Set environment variables
+### 1. Instale o plugin
 
 ```bash
-export APIFY_TOKEN="your_apify_api_key"
-export GEMINI_API_KEY="your_gemini_api_key"
+claude --plugin-dir /caminho/para/influencer-sourcing-plugin
 ```
 
-- Get an Apify key at [apify.com](https://apify.com)
-- Get a Gemini key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
+### 2. Defina variáveis de ambiente
 
-### 3. Install Python dependency
+```bash
+export APIFY_TOKEN="sua_chave_apify"
+export GEMINI_API_KEY="sua_chave_gemini"
+```
+
+- Obtenha uma chave Apify em apify.com
+- Obtenha uma chave Gemini em aistudio.google.com/apikey
+
+### 3. Instale dependência Python
 
 ```bash
 pip install requests
 ```
 
-## Usage
+## Uso
 
-### Quick sourcing
+### Sourcing rápido
 ```
-/influencer-sourcing:source-influencers clean beauty skincare
-```
-
-### Score against a brand brief
-```
-/influencer-sourcing:score-creators GlowVita - clean beauty supplements for women 25-40, launching collagen product
+/influencer-sourcing:source-influencers beleza limpa skincare
 ```
 
-### Export results
+### Pontuar contra um briefing
+```
+/influencer-sourcing:score-creators MarcaX - suplementos de beleza para mulheres 25-40
+```
+
+### Exportar resultados
 ```
 /influencer-sourcing:export-csv
 ```
 
-### Or just ask naturally
-> "Find me 20 TikTok creators in the fitness space with 50K-500K followers and at least 3% engagement"
+### Ou pergunte naturalmente
+> "Encontre 20 criadores TikTok no espaço fitness com 50K-500K seguidores e pelo menos 3% de engajamento"
 
-The plugin triggers automatically on influencer sourcing requests.
+O plugin é acionado automaticamente em solicitações de sourcing de influenciadores.
 
-## Slash Commands
+## Comandos de Barra
 
-| Command | Description |
-|---------|-------------|
-| `/influencer-sourcing:source-influencers` | Find creators by niche from IG/TikTok |
-| `/influencer-sourcing:score-creators` | Score creators against a brand brief |
-| `/influencer-sourcing:export-csv` | Export scored results to CSV |
+| Comando | Descrição |
+|---------|-----------|
+| `/influencer-sourcing:source-influencers` | Encontre criadores por nicho do IG/TikTok |
+| `/influencer-sourcing:score-creators` | Pontue criadores contra um briefing |
+| `/influencer-sourcing:export-csv` | Exporte resultados pontuados para CSV |
 
-## How it works
+## Como funciona
 
-1. **Sourcing** — Uses Apify actors (`clockworks~tiktok-scraper` for TikTok, `apify~instagram-hashtag-scraper` + `apify~instagram-profile-scraper` for Instagram) to find creators by niche
-2. **Scoring** — Sends creator profiles to Gemini 3 Flash with the brand brief context. Gemini scores niche fit and writes personalized outreach DMs
-3. **Export** — Generates a clean CSV with all data
+1. **Sourcing** — Usa atores Apify para encontrar criadores por nicho
+2. **Pontuação** — Envia perfis de criadores para Gemini com contexto do briefing. Gemini pontua o fit de nicho e escreve DMs de outreach personalizadas
+3. **Exportação** — Gera um CSV limpo com todos os dados
 
-## License
+## Licença
 
 MIT
