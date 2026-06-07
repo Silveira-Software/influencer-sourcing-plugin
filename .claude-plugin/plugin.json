@@ -1,0 +1,10 @@
+{
+  "name": "influencer-sourcing",
+  "description": "Find, score, and rank influencer/creator candidates from Instagram and TikTok. Source creators via Apify, score brand fit with Gemini AI, generate personalized outreach DMs, and export to CSV.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Mike Futia"
+  },
+  "homepage": "https://github.com/mikefutia/influencer-sourcing-plugin",
+  "license": "MIT"
+}
